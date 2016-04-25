@@ -54,14 +54,16 @@ $(".boxes" ).click(function() {
       $("#counter").text(counter);
       arrayPlayer = [];
     }
+    if (testMatch(goalPattern, arrayPlayer) === false) {
+      alert("Wrong choice!  Try the same pattern again, you are still on level " + counter + "!");
+      arrayPlayer = [];
+      loop(0);
+    }
     if (counter === 21) {
       $("#counter").text("WIN!");
       alert("Congratulations, you win!  The game will reset now!");
-        resetGame();
+      resetGame();
     }
-      //runSequence();
-      arrayPlayer = [];
-      loop(0);
   }  // End if statement that checks if player's selection matched the goalPattern array element.
 
   console.log(testMatch(goalPattern, arrayPlayer));
