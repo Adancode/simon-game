@@ -52,6 +52,7 @@ $(".boxes" ).click(function() {
       console.log("correct");
       counter = counter + 1;
       $("#counter").text(counter);
+      arrayPlayer = [];
     }
     if (counter === 21) {
       $("#counter").text("WIN!");
@@ -73,7 +74,6 @@ $(".boxes" ).click(function() {
     resetGame();
   }
  }
-
 
  if (strictMode === false && arrayPlayer.length === counter) {
   if (testMatch(goalPattern, arrayPlayer) === false) {
