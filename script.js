@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  
+
 createSequence20();
-  
+
 $(".strict").click(function() {
   switch(strictToggle) {
     case 1:
@@ -16,11 +16,11 @@ $(".strict").click(function() {
       break;
   }  // Closes switch statement
 });  // Closes .strict jQuery Selector
-  
+
 $(".boxes" ).click(function() {
-  
+
   $("#counter").text(counter);
-  
+
   switch (this.id) {
     case "boxGreen":
       audioGreen.play();
@@ -33,69 +33,70 @@ $(".boxes" ).click(function() {
       break;
     case "boxBlue":
       audioBlue.play();
-      break;        
+      break;
   }
-  
+
   $(this).animate({
-    opacity: 1,
+    opacity: 1
   }, 250, function() {
     // Animation complete.
   $(this).animate({
-    opacity: .4,
+    opacity: 0.4
   }, 250, function() {});
   });
+
   arrayPlayer.push("#" + this.id);
-  
-  if (arrayPlayer.length === counter) {  
+
+  if (arrayPlayer.length === counter) {
      console.log(arrayPlayer);
     if (testMatch(goalPattern, arrayPlayer) === true) {
       console.log("correct");
       counter = counter + 1;
       $("#counter").text(counter);
-      
-      if (counter === 21) {
-        $("#counter").text("WIN!")
-    alert("Congratulations, you win!  The game will reset now!");
+
+    if (counter === 21) {
+      $("#counter").text("WIN!");
+      alert("Congratulations, you win!  The game will reset now!");
         resetGame();
   }
       //runSequence();
-   
+
       arrayPlayer = [];
-      loop(0); 
+      loop(0);
     }  // End if statement that checks if player's selection matched the goalPattern array element.
   console.log(testMatch(goalPattern, arrayPlayer));
   }
   console.log("strictMode is " + strictMode);
-  
+
  if (strictMode === true) {
   if (testMatch(goalPattern, arrayPlayer) === false) {
-    arrayPlayer = []; 
+    arrayPlayer = [];
     alert("Sorry, you lose!  You're in strict mode, so you'll have to start from 0 again!");
     resetGame();
   }
  }
-  
-  
+
+
  if (strictMode === false) {
   if (testMatch(goalPattern, arrayPlayer) === false) {
-    arrayPlayer = []; 
+    arrayPlayer = [];
     alert("Wrong choice!  Try the same pattern again, you are still on level " + counter + "!");
     loop(0);
   }
  }
-  
+
 });  //  Ends player click event
-  
+
   // The code below begins the random sequence, in other words, the computer's turn.
 $("#start").click(function(){
   counter = 1;
   $("#counter").text(counter);
   startSequence();
 });
-   
-  
+
+
 function startSequence() {
-  
+
   current = goalPattern[0];
   switch (current) {
     case "#boxGreen":
@@ -111,7 +112,7 @@ function startSequence() {
       audioBlue.play();
       break;
   }
-  
+
   $(current).animate({
     opacity: 1,
   }, 250, function() {
@@ -120,21 +121,21 @@ function startSequence() {
     opacity: .4,
   }, 250, function() {});
   });
-    
+
 } // End of start function
-    
+
  // Reset Game
  $("#reset").click(function(){
    resetGame();
- });     
-  
-// This code is recursive, and it makes the pattern, with time gaps in between.  
-function loop(i) { 
+ });
+
+// This code is recursive, and it makes the pattern, with time gaps in between.
+function loop(i) {
   if(i < counter) {
     console.log(i);
-    
+
     setTimeout(function() {
-  
+
   current = goalPattern[i];
   switch (current) {
     case "#boxGreen":
@@ -150,25 +151,25 @@ function loop(i) {
       audioBlue.play();
       break;
   }
-      
+
   $(current).animate({
-    opacity: 1,
+    opacity: 1
   }, 250, function() {
     // Animation complete.
   $(current).animate({
-    opacity: .4,
-  }, 250, function() {});     
+    opacity: 0.4
+  }, 250, function() {});
   });
-      
+
   i++;
   loop(i);
-  
+
     }, 1000); // Ends setTimeout;
-         
+
   }  //  Ends IF Statement\
-  
+
 }  //  Ends loop()
-  
+
 });  //  Closes jQuery wrapper
 
 var audioGreen = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
@@ -203,7 +204,7 @@ function createSequence20() {
 function testMatch(goalPattern, arrayPlayer) {
   for (var i = 0; i < arrayPlayer.length; i++) {
     if (goalPattern[i] !== arrayPlayer[i]){
-      return false;  
+      return false;
     }
   }
   return true;
