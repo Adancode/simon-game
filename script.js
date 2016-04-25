@@ -17,9 +17,10 @@ $(".strict").click(function() {
   }  // Closes switch statement
 });  // Closes .strict jQuery Selector
 
+// Begins Player Click Event
 $(".boxes" ).click(function() {
 
-  $("#counter").text(counter);
+  //$("#counter").text(counter);
 
   switch (this.id) {
     case "boxGreen":
@@ -53,25 +54,24 @@ $(".boxes" ).click(function() {
       console.log("correct");
       counter = counter + 1;
       $("#counter").text(counter);
-
+    }
     if (counter === 21) {
       $("#counter").text("WIN!");
       alert("Congratulations, you win!  The game will reset now!");
         resetGame();
-  }
+    }
       //runSequence();
-
       arrayPlayer = [];
       loop(0);
-    }  // End if statement that checks if player's selection matched the goalPattern array element.
+  }  // End if statement that checks if player's selection matched the goalPattern array element.
+
   console.log(testMatch(goalPattern, arrayPlayer));
-  }
   console.log("strictMode is " + strictMode);
 
  if (strictMode === true) {
   if (testMatch(goalPattern, arrayPlayer) === false) {
     arrayPlayer = [];
-    alert("Sorry, you lose!  You're in strict mode, so you'll have to start from 0 again!");
+    alert("Sorry, you lose!  You're in strict mode, so you'll have to start over again!");
     resetGame();
   }
  }
@@ -114,11 +114,11 @@ function startSequence() {
   }
 
   $(current).animate({
-    opacity: 1,
+    opacity: 1
   }, 250, function() {
     // Animation complete.
   $(current).animate({
-    opacity: .4,
+    opacity: 0.4
   }, 250, function() {});
   });
 
@@ -182,6 +182,8 @@ var arrayPlayer = [];
 var goalPattern = [];
 var strictMode = false;
 var strictToggle = 1;
+var current;
+
 
 // This generates a random number from 0 to 3, to target one of the three colors in the array called arrayId's.
 function randomNum0to3() {
