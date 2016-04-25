@@ -184,6 +184,7 @@ var goalPattern = [];
 var strictMode = false;
 var strictToggle = 1;
 var current;
+var i = 0;
 
 
 // This generates a random number from 0 to 3, to target one of the three colors in the array called arrayId's.
