@@ -78,14 +78,6 @@ $(".boxes" ).click(function() {
   }
  }
 
- if (strictMode === false && arrayPlayer.length === counter) {
-  if (testMatch(goalPattern, arrayPlayer) === false) {
-    arrayPlayer = [];
-    alert("Wrong choice!  Try the same pattern again, you are still on level " + counter + "!");
-    loop(0);
-  }
- }
-
 });  //  Ends player click event
 
   // The code below begins the random sequence, in other words, the computer's turn.
@@ -132,6 +124,9 @@ function startSequence() {
 
 // This code is recursive, and it makes the pattern, with time gaps in between.
 function loop(i) {
+  if (i === counter - 1) {
+    arrayPlayer = [];
+  }
   if(i < counter) {
     console.log(i);
 
