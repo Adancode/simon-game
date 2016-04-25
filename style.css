@@ -1,0 +1,126 @@
+.title {
+  margin-top: 70px;
+  
+}
+
+#container {
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background-color: #343334;
+  position: relative;
+  margin: 0 auto;
+}
+
+#controlPanel {
+  height: 300px; 
+  width: 300px;
+  border-radius: 50%;
+  background-color: #343334;
+  position: absolute;
+  top: 110px;
+  left: 110px;
+  z-index: 1;
+}
+
+.boxes {
+  height: 230px;
+  width: 230px;
+}
+
+#boxGreen {
+  border-top-left-radius: 260px;
+  background-color: green;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  opacity: .4;
+}
+
+#boxRed {
+  border-top-right-radius: 260px;
+  background-color: red;
+  position: absolute;
+  top: 20px;
+  left: 270px;
+  cursor: pointer;
+  opacity: .4;
+}
+
+#boxYellow {
+  border-bottom-left-radius: 260px;
+  background-color: yellow;
+  position: absolute;
+  top: 270px;
+  left: 20px;
+  cursor: pointer;
+  opacity: .4;
+}
+
+#boxBlue {
+  border-bottom-right-radius: 260px;
+  background-color: blue;
+  position: absolute;
+  top: 270px;
+  left: 270px;
+  cursor: pointer;
+  opacity: .4;
+}
+
+#start {
+  background-color: white;
+  position: relative;
+  top: -10px;
+  left: 95px;
+  font-weight: bold;
+}
+
+.strict {
+  background-color: red;
+  position: relative;
+  top: -10px;
+  left: 110px;
+  font-weight: bold;
+  color: white;
+}
+
+#reset {
+  background-color: white;
+  position: relative;
+  top: -10px;
+  left: 125px;
+  font-weight: bold;
+}
+
+#counter {
+  height: 40px;
+  width: 70px;
+  font-size: 30px;
+  background-color: black;
+  color: red;
+  border-radius: 10px;
+  position: relative;
+  top: 22px;
+  left: 13px;
+}
+
+#title {
+  z-index: 200;
+  color: white;
+  margin-top: 60px;
+}
+
+#trademark {
+  font-size: 15px;
+  vertical-align: text-top;
+}
+
+.green {
+  background-color: green;
+  position: relative;
+  top: -10px;
+  left: 110px;
+  font-weight: bold;
+  color: white;
+}
