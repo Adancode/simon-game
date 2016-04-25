@@ -46,6 +46,10 @@ $(".boxes" ).click(function() {
 
   arrayPlayer.push("#" + this.id);
 
+  if (arrayPlayer[i] === arrayPlayer[i - 1]) {
+    arrayPlayer.pop();
+  }
+
   if (arrayPlayer.length === counter) {
      console.log(arrayPlayer);
     if (testMatch(goalPattern, arrayPlayer) === true) {
@@ -124,9 +128,6 @@ function startSequence() {
 
 // This code is recursive, and it makes the pattern, with time gaps in between.
 function loop(i) {
-  if (i === counter - 1) {
-    arrayPlayer = [];
-  }
   if(i < counter) {
     console.log(i);
 
