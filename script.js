@@ -53,6 +53,7 @@ $(".boxes" ).click(function() {
       counter = counter + 1;
       $("#counter").text(counter);
       arrayPlayer = [];
+      loop(0);
     }
     if (testMatch(goalPattern, arrayPlayer) === false) {
       alert("Wrong choice!  Try the same pattern again, you are still on level " + counter + "!");
