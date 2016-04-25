@@ -1,3 +1,49 @@
+var audioGreen = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+var audioRed = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+var audioBlue = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+var audioYellow = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
+var counter = 0;
+var arrayIds = ["#boxGreen", "#boxRed", "#boxBlue", "#boxYellow"];
+var arrayPlayer = [];
+var goalPattern = [];
+var strictMode = false;
+var strictToggle = 1;
+
+// This generates a random number from 0 to 3, to target one of the three colors in the array called arrayId's.
+function randomNum0to3() {
+  return Math.floor(Math.random() * 4);
+}
+
+// This creates a random sequence of 20 items.
+function createSequence20() {
+  for (var i = 0; i < 20; i++) {
+    goalPattern.push(arrayIds[randomNum0to3()]);
+    //  If an item in the sequence repeats the item in the sequence before it, it is removed from the array, then i is decreased one, so that the sequence can go one more time, but still produce only 20 items in the array.
+    if (goalPattern[i] === goalPattern[i - 1]) {
+      goalPattern.pop();
+      i--;
+    }
+  }
+  console.log(goalPattern);
+}
+
+function testMatch(goalPattern, arrayPlayer) {
+  for (var i = 0; i < arrayPlayer.length; i++) {
+    if (goalPattern[i] !== arrayPlayer[i]){
+      return false;  
+    }
+  }
+  return true;
+}
+
+function resetGame() {
+  arrayPlayer = [];
+  goalPattern =[];
+  createSequence20();
+  counter = 0;
+  $("#counter").text(counter);
+}
+
 $(document).ready(function() {
   
 createSequence20();
@@ -171,48 +217,3 @@ function loop(i) {
   
 });  //  Closes jQuery wrapper
 
-var audioGreen = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
-var audioRed = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
-var audioBlue = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
-var audioYellow = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
-var counter = 0;
-var arrayIds = ["#boxGreen", "#boxRed", "#boxBlue", "#boxYellow"];
-var arrayPlayer = [];
-var goalPattern = [];
-var strictMode = false;
-var strictToggle = 1;
-
-// This generates a random number from 0 to 3, to target one of the three colors in the array called arrayId's.
-function randomNum0to3() {
-  return Math.floor(Math.random() * 4);
-}
-
-// This creates a random sequence of 20 items.
-function createSequence20() {
-  for (var i = 0; i < 20; i++) {
-    goalPattern.push(arrayIds[randomNum0to3()]);
-    //  If an item in the sequence repeats the item in the sequence before it, it is removed from the array, then i is decreased one, so that the sequence can go one more time, but still produce only 20 items in the array.
-    if (goalPattern[i] === goalPattern[i - 1]) {
-      goalPattern.pop();
-      i--;
-    }
-  }
-  console.log(goalPattern);
-}
-
-function testMatch(goalPattern, arrayPlayer) {
-  for (var i = 0; i < arrayPlayer.length; i++) {
-    if (goalPattern[i] !== arrayPlayer[i]){
-      return false;  
-    }
-  }
-  return true;
-}
-
-function resetGame() {
-  arrayPlayer = [];
-  goalPattern =[];
-  createSequence20();
-  counter = 0;
-  $("#counter").text(counter);
-}
