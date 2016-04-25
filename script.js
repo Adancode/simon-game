@@ -20,8 +20,6 @@ $(".strict").click(function() {
 // Begins Player Click Event
 $(".boxes" ).click(function() {
 
-  //$("#counter").text(counter);
-
   switch (this.id) {
     case "boxGreen":
       audioGreen.play();
@@ -77,7 +75,7 @@ $(".boxes" ).click(function() {
  }
 
 
- if (strictMode === false) {
+ if (strictMode === false && arrayPlayer.length === counter) {
   if (testMatch(goalPattern, arrayPlayer) === false) {
     arrayPlayer = [];
     alert("Wrong choice!  Try the same pattern again, you are still on level " + counter + "!");
