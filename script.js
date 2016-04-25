@@ -55,12 +55,12 @@ $(".boxes" ).click(function() {
       arrayPlayer = [];
       loop(0);
     }
-    if (testMatch(goalPattern, arrayPlayer) === false) {
+    else if (testMatch(goalPattern, arrayPlayer) === false) {
       alert("Wrong choice!  Try the same pattern again, you are still on level " + counter + "!");
       arrayPlayer = [];
       loop(0);
     }
-    if (counter === 21) {
+    else if (counter === 21) {
       $("#counter").text("WIN!");
       alert("Congratulations, you win!  The game will reset now!");
       resetGame();
