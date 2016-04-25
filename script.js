@@ -45,10 +45,7 @@ $(".boxes" ).click(function() {
   });
 
   arrayPlayer.push("#" + this.id);
-
-  if (arrayPlayer[i] === arrayPlayer[i - 1]) {
-    arrayPlayer.pop();
-  }
+  removeDuplicates();
 
   if (arrayPlayer.length === counter) {
      console.log(arrayPlayer);
@@ -216,4 +213,11 @@ function resetGame() {
   createSequence20();
   counter = 0;
   $("#counter").text(counter);
+}
+
+// I'm adding the function below to try to overcome a bug in Firefox and Safari that makes the arrayPlayer not be cleared at the end of every turn, as it should be.
+function removeDuplicates() {
+  if (arrayPlayer[arrayPlayer.length - 2] === arrayPlayer[arrayPlayer.length - 1]) {
+    arrayPlayer.pop();
+  }
 }
