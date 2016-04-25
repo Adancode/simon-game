@@ -88,7 +88,7 @@ $(".boxes" ).click(function() {
   
   // The code below begins the random sequence, in other words, the computer's turn.
 $("#start").click(function(){
-  counter = counter + 1;
+  counter = 1;
   $("#counter").text(counter);
   startSequence();
 });
