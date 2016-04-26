@@ -1,6 +1,6 @@
 # simon-game
 
-Note: There is a bug in Firefox and Safari which causes a click event in the code to fire off twice, making the game malfunction.  Chrome, Internet Explorer, and Opera work fine with the game.
+Note: There is a bug in Firefox and Safari which causes the game to malfunction.  Chrome, Internet Explorer, and Opera work fine with the game.
 
 Mac Browser Compatibility:
 
